@@ -1,6 +1,7 @@
 import React from "react";
 
 import { axiosWithAuth } from "../utils/axiosWithAuth";
+import LoadingSpinner from "../img/loading.gif";
 
 class FriendsList extends React.Component {
   constructor() {
@@ -14,7 +15,6 @@ class FriendsList extends React.Component {
 
   getFriendsList = () => {
     this.setState({ ...this.state, isLoading: true });
-    const token = window.localStorage.getItem("token");
 
     axiosWithAuth()
       .get("/api/friends")
@@ -33,18 +33,18 @@ class FriendsList extends React.Component {
   render() {
     return (
       <div className="FriendsList">
+        <h2>Friend List</h2>
         {this.state.isLoading && (
           <div>
-            <h3>Loading Friends...</h3>
+            <img src={LoadingSpinner} alt="Loading Spinner" />
           </div>
         )}
 
         <div className="ListOfFriends">
           {this.state.friends.map((friend) => (
             <div key={friend.id}>
-              <h4>Friend ID: {`${friend.id}`}</h4>
-              <h4>{`${friend.name}, `}</h4>
-              <h4>{`${friend.age} years old`}</h4>
+              <h4>{`ID: ${friend.id}`}</h4>
+              <h4>{`${friend.name}, ${friend.age} years old`}</h4>
             </div>
           ))}
         </div>

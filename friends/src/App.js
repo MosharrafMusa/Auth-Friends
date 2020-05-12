@@ -17,24 +17,27 @@ class App extends React.Component {
     return (
       <div className="Container">
         <Router>
-          <Link to="/">
-            <h2>Home</h2>
-          </Link>
+          <div className="Nav">
+            <Link to="/">
+              <h2>Home</h2>
+            </Link>
 
-          <Link to="/login">
-            <h2>Login</h2>
-          </Link>
+            <Link to="/login">
+              <h2>Login</h2>
+            </Link>
 
-          <Link to="/friends-list">
-            <h2>View Friends</h2>
-          </Link>
-          <Link to="/add-friend">
-            <h2>Add Friend</h2>
-          </Link>
+            <Link to="/friends-list">
+              <h2>View Friends</h2>
+            </Link>
 
-          <Link to="/delete-friend">
-            <h2>Delete Friend</h2>
-          </Link>
+            <Link to="/add-friend">
+              <h2>Add Friend</h2>
+            </Link>
+
+            <Link to="/delete-friend">
+              <h2>Delete Friend</h2>
+            </Link>
+          </div>
 
           <Switch>
             <Route path="/login" component={Login} />
