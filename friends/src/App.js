@@ -1,12 +1,24 @@
 import React from "react";
-import "./App.css";
+import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 
-function App() {
-  return (
-    <div className="App">
-      <h1>Auth Friends</h1>
-    </div>
-  );
+import Login from "./components/Login";
+
+class App extends React.Component {
+  constructor() {
+    super();
+    this.state = { credentials: {} };
+  }
+
+  render() {
+    return (
+      <Router>
+        <Link to="/login">Login</Link>
+        <Switch>
+          <Route path="/login" component={Login} />
+        </Switch>
+      </Router>
+    );
+  }
 }
 
 export default App;
